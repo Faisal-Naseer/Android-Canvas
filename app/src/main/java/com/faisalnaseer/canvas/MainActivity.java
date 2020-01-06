@@ -4,11 +4,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.faisalnaseer.canvas.views.Chess;
 
+public class MainActivity extends AppCompatActivity {
+    Chess chess;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        chess = new Chess(this);
+        setContentView(chess);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        chess.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        chess.onPause();
+        super.onPause();
     }
 }
+
